@@ -5,145 +5,240 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Leo Lloyd Catalan</title>
 <meta name="description" content="Leo Lloyd Catalan: law student at Silliman University and computer science graduate who builds local-first AI tools for legal study.">
+<link rel="icon" href="img/avatar.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css?v=3">
 </head>
 <body>
 
-<header class="hero">
-  <div class="wrap">
-    <img class="avatar" src="avatar.jpg" alt="Leo Lloyd Catalan" width="112" height="112">
-    <p class="eyebrow">Dumaguete City, Philippines</p>
-    <h1>Leo Lloyd Catalan</h1>
-    <p class="lede">Law student at Silliman University and computer science graduate. I build
-      local-first AI tools that help me study the law.</p>
-    <nav class="links">
-      <a href="#projects">Projects</a>
-      <a href="#about">About</a>
-      <a href="#experience">Experience</a>
-      <a href="https://github.com/lloydonix">GitHub</a>
-      <a href="https://www.linkedin.com/in/leolloydcatalan/">LinkedIn</a>
-    </nav>
+<nav class="topbar" id="topbar">
+  <a class="brand" href="#top">LLC</a>
+  <div class="nav-links">
+    <a href="#projects">Projects</a>
+    <a href="#about">About</a>
+    <a href="#experience">Experience</a>
+  </div>
+</nav>
+
+<!-- HOME -->
+<header class="hero" id="top">
+  <div class="hero-stage">
+    <div class="hero-photo">
+      <div class="glow"></div>
+      <img src="img/lloyd.webp" alt="Lloyd in a dark suit and red tie, smiling" width="869" height="1366">
+    </div>
+    <div class="hero-text">
+      <p class="eyebrow">Leo Lloyd Catalan · Dumaguete City</p>
+      <h1>Hi, I'm Lloyd.</h1>
+      <p class="lede">I'm a law student at Silliman University and a computer science graduate.
+        I build local-first AI tools that help me study the law.</p>
+      <div class="hero-links">
+        <a class="btn" href="#projects">See my projects</a>
+        <a class="btn ghost" href="https://github.com/lloydonix">GitHub</a>
+        <a class="btn ghost" href="https://www.linkedin.com/in/leolloydcatalan/">LinkedIn</a>
+      </div>
+    </div>
+    <div class="scroll-hint" aria-hidden="true"><span></span>Scroll</div>
   </div>
 </header>
 
-<main class="wrap">
+<main>
 
-  <section id="projects">
-    <h2><span class="num">I</span> Projects</h2>
-    <p class="section-note">Built in October 2026 with Claude (Anthropic) as a pair programmer. They all
-      run on a 16 GB MacBook Air M2. The models are local through Ollama, and the cloud models I use
-      are on free tiers.</p>
+  <!-- PROJECTS -->
+  <section id="projects" class="wrap">
+    <div class="section-head reveal">
+      <span class="num">I</span>
+      <h2>Projects</h2>
+    </div>
+    <p class="section-note reveal">Most of these were built in October 2026 with Claude (Anthropic) as a pair
+      programmer, and they all run on a 16 GB MacBook Air M2. <span class="hint-hover">Hover over a project for the details.</span><span class="hint-tap">Tap a project for the details.</span></p>
 
-    <article class="project">
-      <div class="project-head">
+    <div class="grid">
+
+      <article class="card reveal" tabindex="0">
+        <div class="icon"><svg viewBox="0 0 24 24"><path d="M3 12h2M7 8v8M11 5v14M15 9v6M19 7v10M21 12h0"/></svg></div>
         <h3>F5 Studio</h3>
-        <a class="repo" href="https://github.com/lloydonix/f5-studio">github.com/lloydonix/f5-studio</a>
-      </div>
-      <p>An offline Mac app that turns long scripts, such as study reviewers, lecture notes and tutoring
-        scripts, into long-form audio with F5-TTS voice cloning. You pick a 5–10 second reference voice
-        and it generates audio one paragraph at a time on the Apple GPU.</p>
-      <ul>
-        <li>The generation queue survives restarts. Clips are keyed by their text, so editing one line regenerates only that line.</li>
-        <li>A shared pronunciation list handles Latin terms, names and acronyms, and numbers are written out as words before speaking.</li>
-        <li>Reference voices are trimmed, resampled to 24 kHz and transcribed with Whisper. Lines with an unusual pace are flagged for a listen.</li>
-        <li>A fact check flags numbers or citations that are missing compared with the source notes. The finished audio is exported as one merged MP3.</li>
-        <li>It's a native Swift wrapper around a local Python server. There are no accounts, no paid APIs, and nothing leaves the Mac.</li>
-      </ul>
-      <p class="tags"><span>Python</span><span>Swift</span><span>F5-TTS</span><span>Whisper</span><span>Apple Metal</span></p>
-    </article>
+        <p class="tagline">An offline Mac app that turns long scripts into audio with a cloned voice.</p>
+        <p class="tags"><span>Python</span><span>Swift</span><span>F5-TTS</span></p>
+        <div class="detail">
+          <p>An offline Mac app that turns long scripts, such as study reviewers, lecture notes and tutoring
+            scripts, into long-form audio with F5-TTS voice cloning. You pick a 5–10 second reference voice
+            and it generates audio one paragraph at a time on the Apple GPU.</p>
+          <ul>
+            <li>The generation queue survives restarts. Clips are keyed by their text, so editing one line regenerates only that line.</li>
+            <li>A shared pronunciation list handles Latin terms, names and acronyms.</li>
+            <li>Reference voices are trimmed, resampled and transcribed with Whisper. Lines with an unusual pace are flagged for a listen.</li>
+            <li>A fact check flags numbers or citations missing from the source. Export is one merged MP3.</li>
+            <li>A native Swift wrapper around a local Python server. Nothing leaves the Mac.</li>
+          </ul>
+          <p class="tags"><span>Python</span><span>Swift</span><span>F5-TTS</span><span>Whisper</span><span>Apple Metal</span></p>
+          <a class="repo" href="https://github.com/lloydonix/f5-studio">github.com/lloydonix/f5-studio →</a>
+        </div>
+      </article>
 
-    <article class="project">
-      <div class="project-head">
+      <article class="card reveal" tabindex="0">
+        <div class="icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3.2"/><path d="M12 2.5v3M12 18.5v3M21.5 12h-3M5.5 12h-3M18.7 5.3l-2.1 2.1M7.4 16.6l-2.1 2.1M18.7 18.7l-2.1-2.1M7.4 7.4 5.3 5.3"/></svg></div>
         <h3>The Cogitator</h3>
-        <span class="repo private">private repository</span>
-      </div>
-      <p>A study machine for my law notes. Open WebUI sits on a custom OpenAI-compatible bridge, and every
-        question is answered from my Obsidian notes first, with the sources shown as links back into the vault.</p>
-      <ul>
-        <li>Study modes: <code>/digest</code> writes case digests in my own Case Brief template from my notes plus LawPhil, the SC E-Library and the Official Gazette. It refuses rather than digest from memory. <code>/recit</code> runs recitation drills, and there are modes for elements and for distinguishing doctrines.</li>
-        <li>A <em>PH Law Search</em> toggle limits web lookups to trusted Philippine legal sources.</li>
-        <li><em>Quiz me</em> and <em>Save as Brief</em> buttons sit under each answer. Saving drafts a new note into the right subject folder and links it from that subject's map of content. It never overwrites an existing note, and it backs up the map first.</li>
-        <li><strong>Scriptorium</strong> writes tutor scripts from a reviewer and the notes it links to, in a chosen voice, and checks the numbers against the sources. The scripts go straight to F5 Studio to be read aloud.</li>
-        <li>Groq writes the answers by default and Mistral is the backup. Offline, a local qwen3 model writes them, and the note search always stays on the Mac.</li>
-      </ul>
-      <p class="tags"><span>Python</span><span>Swift</span><span>Open WebUI</span><span>RAG</span><span>Ollama</span><span>Groq</span></p>
-    </article>
+        <p class="tagline">A study machine that answers from my Obsidian law notes first, with sources.</p>
+        <p class="tags"><span>Python</span><span>Open WebUI</span><span>RAG</span></p>
+        <div class="detail">
+          <p>Open WebUI on a custom OpenAI-compatible bridge. Every question is answered from my Obsidian notes
+            first, with the sources shown as links back into the vault.</p>
+          <ul>
+            <li><code>/digest</code> writes case digests in my own Case Brief template from my notes plus LawPhil, the SC E-Library and the Official Gazette, and refuses rather than digest from memory. <code>/recit</code> runs recitation drills.</li>
+            <li>A <em>PH Law Search</em> toggle limits web lookups to trusted Philippine legal sources.</li>
+            <li><em>Quiz me</em> and <em>Save as Brief</em> buttons. Saving drafts a new note into the right subject folder and never overwrites one.</li>
+            <li><strong>Scriptorium</strong> writes tutor scripts from a reviewer and checks the numbers against the sources, ready for F5 Studio.</li>
+            <li>Groq by default, Mistral as backup, a local qwen3 model offline. The note search always stays on the Mac.</li>
+          </ul>
+          <p class="tags"><span>Python</span><span>Swift</span><span>Open WebUI</span><span>Ollama</span><span>Groq</span></p>
+          <span class="repo private">Private repository</span>
+        </div>
+      </article>
 
-    <article class="project">
-      <div class="project-head">
+      <article class="card reveal" tabindex="0">
+        <div class="icon"><svg viewBox="0 0 24 24"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15H6.5A2.5 2.5 0 0 0 4 20.5z"/><path d="M4 20.5A2.5 2.5 0 0 0 6.5 23H20v-5"/><path d="m9 10 2 2 4-4"/></svg></div>
         <h3>Scientia Juria Mentor</h3>
-        <span class="repo private">private repository</span>
-      </div>
-      <p>A strictly grounded law-study tutor for my Obsidian vault. It answers only from my notes (and from
-        trusted legal sites when I allow it), cites every claim, and refuses rather than guesses. It has a
-        persona: Sakura Mina, a fictional law-school rival I created.</p>
-      <ul>
-        <li>The pipeline is retrieval, then a draft, then a check of every claim against its citation. Unsupported claims are dropped, and a debug view shows why each one was kept or dropped.</li>
-        <li>The vault is opened read-only, and notes-only mode works fully offline.</li>
-        <li>An evaluation harness compares chat models side by side on the same questions.</li>
-        <li>Its retrieval and claim checks also power the Cogitator.</li>
-      </ul>
-      <p class="tags"><span>Python</span><span>RAG</span><span>Ollama</span><span>Embeddings</span><span>Evaluation</span></p>
-    </article>
+        <p class="tagline">A law tutor that only answers from my notes and cites every claim.</p>
+        <p class="tags"><span>Python</span><span>RAG</span><span>Ollama</span></p>
+        <div class="detail">
+          <p>A strictly grounded tutor for my Obsidian vault. It answers only from my notes (and trusted legal
+            sites when I allow it), cites every claim, and refuses rather than guesses. Its persona is Sakura Mina,
+            a fictional law-school rival I created.</p>
+          <ul>
+            <li>Retrieval, then a draft, then a check of every claim against its citation. Unsupported claims are dropped, and a debug view shows why.</li>
+            <li>The vault is opened read-only, and notes-only mode works fully offline.</li>
+            <li>An evaluation harness compares chat models side by side.</li>
+            <li>Its retrieval and claim checks also power the Cogitator.</li>
+          </ul>
+          <p class="tags"><span>Python</span><span>RAG</span><span>Embeddings</span><span>Evaluation</span></p>
+          <span class="repo private">Private repository</span>
+        </div>
+      </article>
 
-    <article class="project">
-      <div class="project-head">
+      <article class="card reveal" tabindex="0">
+        <div class="icon"><svg viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"/><path d="M8 10h.01M12 10h.01M16 10h.01"/></svg></div>
         <h3>Vi</h3>
-        <span class="repo private">private repository</span>
-      </div>
-      <p>A private, local AI companion with long-term memory. The chat, the model and every memory stay on
-        the Mac. It's the largest of these projects, with nearly a hundred commits in two weeks.</p>
-      <ul>
-        <li>It runs as launchd services that start at login and restart if they crash, plus scheduled check-ins.</li>
-        <li>Prompts are ordered so Ollama can reuse cached work between messages, which brings replies down to about 5–10 seconds on 16 GB of memory.</li>
-        <li>An optional discoveries feed downloads a fixed list of public feeds through a safety pipeline and sends out nothing about the user.</li>
-      </ul>
-      <p class="tags"><span>Python</span><span>Ollama</span><span>launchd</span><span>Long-term memory</span></p>
-    </article>
+        <p class="tagline">A private, local AI companion with long-term memory.</p>
+        <p class="tags"><span>Python</span><span>Ollama</span><span>launchd</span></p>
+        <div class="detail">
+          <p>A local AI companion with long-term memory. The chat, the model and every memory stay on the Mac.
+            It's the largest of these projects, with nearly a hundred commits in two weeks.</p>
+          <ul>
+            <li>Runs as launchd services that start at login and restart if they crash.</li>
+            <li>Prompts are ordered so Ollama can reuse cached work, bringing replies to about 5–10 seconds on 16 GB.</li>
+            <li>An optional discoveries feed reads a fixed list of public feeds through a safety pipeline and sends nothing out.</li>
+          </ul>
+          <p class="tags"><span>Python</span><span>Ollama</span><span>launchd</span><span>Long-term memory</span></p>
+          <span class="repo private">Private repository</span>
+        </div>
+      </article>
 
-    <article class="project">
-      <div class="project-head">
+      <article class="card reveal" tabindex="0">
+        <div class="icon"><svg viewBox="0 0 24 24"><circle cx="7" cy="8" r="2.5"/><circle cx="17" cy="8" r="2.5"/><circle cx="7" cy="17" r="2.5"/><circle cx="17" cy="17" r="2.5"/><path d="M9.5 8h5M9.5 17h5M7 10.5v4M17 10.5v4"/></svg></div>
         <h3>The Council</h3>
-        <span class="repo private">private repository</span>
-      </div>
-      <p>Several mentor characters in one chat, inspired by Arthur Morgan, Joshua Graham, Musashi from
-        <em>Vagabond</em>, and Arthas as the devil's advocate. The members with something to say reply,
-        all written in one model pass and shown as separate colored bubbles.</p>
-      <ul>
-        <li>Adding a member takes one persona file and one config entry.</li>
-        <li>It shares a single loaded model with Vi. Coordination code makes sure one app never unloads the model or pushes it out of memory while the other is using it.</li>
-      </ul>
-      <p class="tags"><span>Python</span><span>Swift</span><span>Ollama</span><span>Multi-agent</span></p>
-    </article>
+        <p class="tagline">Four mentor characters who talk with you in one chat.</p>
+        <p class="tags"><span>Python</span><span>Ollama</span><span>Multi-agent</span></p>
+        <div class="detail">
+          <p>Mentor characters inspired by Arthur Morgan, Joshua Graham, Musashi from <em>Vagabond</em>, and Arthas
+            as the devil's advocate. The members with something to say reply, all written in one model pass and
+            shown as separate colored bubbles.</p>
+          <ul>
+            <li>Adding a member takes one persona file and one config entry.</li>
+            <li>It shares a single loaded model with Vi, with coordination code so neither app pushes the model out while the other is using it.</li>
+          </ul>
+          <p class="tags"><span>Python</span><span>Swift</span><span>Ollama</span></p>
+          <span class="repo private">Private repository</span>
+        </div>
+      </article>
 
-    <h3 class="sub">Earlier work</h3>
-    <ul class="earlier">
-      <li><a href="https://github.com/lloydonix/leo-dev">Leo OS</a>: a personal site and blog with a Node.js server and a SQL database.</li>
-      <li><a href="https://github.com/lloydonix/PSDtoWebpage">PSD to Webpage</a>: turning a Photoshop design into HTML and CSS.</li>
-    </ul>
-  </section>
 
-  <section id="about">
-    <h2><span class="num">II</span> About</h2>
-    <p>I'm a second-year law student at Silliman University in Dumaguete City. Before law school I
-      studied computer science, and I still code because I like it. These projects came from wanting
-      better tools for my own studies.</p>
-    <p>I keep my legal reading in an Obsidian knowledge system with two parts. <strong>Scientia Juria</strong>
-      is the library of cases and subject-tagged materials, and <strong>Ratio Juris</strong> is where my own
-      analysis and reasoning go. The tools above are built on top of it.</p>
-    <div class="interests">
-      <div><h4>Reading</h4><p>Roman history, Stoicism and Marcus Aurelius, Napoleon</p></div>
-      <div><h4>Listening</h4><p>The Beatles (<em>Abbey Road</em>), Sinatra, standards, K-pop</p></div>
-      <div><h4>Playing</h4><p>Baldur's Gate 3, Warhammer 40,000: Rogue Trader, Red Dead Redemption 2</p></div>
+      <article class="card reveal" tabindex="0">
+        <div class="icon"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 8h18M7 12l3 2.5L7 17M12 17h5"/></svg></div>
+        <h3>Leo OS</h3>
+        <p class="tagline">A personal site and blog with its own server and database.</p>
+        <p class="tags"><span>Node.js</span><span>SQL</span></p>
+        <div class="detail">
+          <p>An earlier personal site and blog, built on a Node.js server with a SQL database.</p>
+          <p class="tags"><span>Node.js</span><span>JavaScript</span><span>SQL</span></p>
+          <a class="repo" href="https://github.com/lloydonix/leo-dev">github.com/lloydonix/leo-dev →</a>
+        </div>
+      </article>
+
+      <article class="card reveal" tabindex="0">
+        <div class="icon"><svg viewBox="0 0 24 24"><path d="m12 3 9 5-9 5-9-5z"/><path d="m3 12 9 5 9-5"/><path d="m3 16 9 5 9-5"/></svg></div>
+        <h3>PSD to Webpage</h3>
+        <p class="tagline">Turning a Photoshop design into a working HTML and CSS page.</p>
+        <p class="tags"><span>HTML</span><span>CSS</span></p>
+        <div class="detail">
+          <p>An exercise in turning a Photoshop mockup into a faithful, working web page.</p>
+          <p class="tags"><span>HTML</span><span>CSS</span></p>
+          <a class="repo" href="https://github.com/lloydonix/PSDtoWebpage">github.com/lloydonix/PSDtoWebpage →</a>
+        </div>
+      </article>
+
+
     </div>
   </section>
 
-  <section id="experience">
-    <h2><span class="num">III</span> Experience</h2>
-    <div class="timeline">
+  <!-- ABOUT -->
+  <section id="about" class="wrap">
+    <div class="section-head reveal">
+      <span class="num">II</span>
+      <h2>About</h2>
+    </div>
+
+    <div class="split">
+      <div class="split-text reveal">
+        <h3 class="kicker">School</h3>
+        <p>I'm in law school at the <strong>Silliman University College of Law</strong> in Dumaguete City,
+          where I started my Juris Doctor in January 2025. I'm a member of Fraternitas Scintilla Legis.</p>
+        <p>Before that, I studied <strong>computer science at Negros Oriental State University</strong>
+          from 2018 to 2023. In between, I spent a little over two years working remotely at Evo Tech Software
+          Solutions on Amazon seller support and reimbursements, including a stint as a team supervisor.</p>
+      </div>
+      <figure class="slides reveal" id="slides">
+        <img class="active" src="img/silliman-law.jpg" alt="The Silliman University College of Law building" data-caption="Silliman University College of Law">
+        <img src="img/norsu.jpg" alt="The front of a Negros Oriental State University building, with the university seal" data-caption="Negros Oriental State University">
+        <figcaption><span id="slide-caption">Silliman University College of Law</span>
+          <span class="dots" id="slide-dots"></span></figcaption>
+      </figure>
+    </div>
+
+    <div class="split reverse">
+      <div class="split-text reveal">
+        <h3 class="kicker">Why I code</h3>
+        <p>Mostly for fun. I like building things, and law school gives me plenty of problems worth building for.</p>
+        <p>Everything on this page started as something I wanted for my own studying: a tutor that only answers
+          from my notes, a way to listen to my reviewers as audio, and a faster way to write case digests in my own template.</p>
+        <p class="list-intro">What I'm working on now:</p>
+        <ul class="now">
+          <li><strong>My Obsidian vault.</strong> Scientia Juria holds the cases and subject-tagged materials, and Ratio Juris holds my own analysis.</li>
+          <li><strong>The Cogitator and Scriptorium.</strong> More study modes, and tutor scripts written straight from my reviewers.</li>
+          <li><strong>F5 Studio.</strong> Smoother long-form audio for listening to those scripts.</li>
+        </ul>
+        <div class="interests">
+          <div><h4>Reading</h4><p>Roman history, Stoicism, Napoleon</p></div>
+          <div><h4>Listening</h4><p>The Beatles, Sinatra, standards, K-pop</p></div>
+          <div><h4>Playing</h4><p>Baldur's Gate 3, Rogue Trader, RDR2</p></div>
+        </div>
+      </div>
+      <figure class="vault reveal">
+        <svg id="vault-graph" viewBox="0 0 480 420" role="img" aria-label="An Obsidian-style graph of linked legal notes, centered on Scientia Juria and Ratio Juris"></svg>
+        <figcaption>My vault, drawn like Obsidian's graph view. Hover over a note to see its links.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience" class="wrap">
+    <div class="section-head reveal">
+      <span class="num">III</span>
+      <h2>Experience</h2>
+    </div>
+    <div class="timeline reveal">
       <div class="item">
         <h3>Juris Doctor</h3>
         <p class="meta">Silliman University · Jan 2025 – present</p>
@@ -174,5 +269,13 @@
   </div>
 </footer>
 
+<!-- Hover panel (desktop) and dialog (tap / keyboard) share each card's .detail content -->
+<div class="peek" id="peek" aria-hidden="true"></div>
+<dialog class="modal" id="modal">
+  <button class="close" id="modal-close" aria-label="Close">×</button>
+  <div id="modal-body"></div>
+</dialog>
+
+<script src="script.js?v=3"></script>
 </body>
 </html>
