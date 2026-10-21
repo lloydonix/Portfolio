@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=6">
+<link rel="stylesheet" href="style.css?v=7">
 </head>
 <body>
 
@@ -17,6 +17,7 @@
   <a class="brand" href="#top">LLC</a>
   <div class="nav-links">
     <a href="#projects">Projects</a>
+    <a href="#thesis">Thesis</a>
     <a href="#about">About</a>
     <a href="#experience">Experience</a>
   </div>
@@ -183,11 +184,44 @@
     </div>
   </section>
 
+  <!-- THESIS -->
+  <section id="thesis" class="wrap melt">
+    <div class="section-head reveal">
+      <span class="num">02</span>
+      <h2>Thesis</h2>
+    </div>
+
+    <article class="thesis reveal">
+      <div class="thesis-text">
+        <p class="eyebrow">BS Computer Science · Negros Oriental State University · 2022</p>
+        <h3>Sentiment Analysis of the Effects of Typhoon Odette</h3>
+        <p class="byline">With Michelyn D. Jumuad · Supervised by Engr. Guilbert Nicanor Atillo, Ph.D.</p>
+        <p>My first data project. Two months after Typhoon Odette (Rai) hit the Philippines in December 2021,
+          we collected tweets about it and scored each one as positive, neutral or negative, to see how people
+          were talking about the storm and the recovery.</p>
+        <p>Most tweets turned out to be neutral, with positive ones close behind. Reading through them, many
+          were people thanking donors and other countries for help, or announcing donation drives. The most
+          common word was <em>help</em>, at 144 times.</p>
+        <p class="muted">Looking back, the hard part we flagged was the language: Filipino tweets mix Tagalog and
+          English, which off-the-shelf sentiment tools handle badly. We recommended a longer collection window
+          and recurrent neural networks as next steps.</p>
+        <p class="tags"><span>Orange3</span><span>Data mining</span><span>NLP</span><span>k-means</span><span>Twitter</span></p>
+      </div>
+
+      <ol class="pipeline" aria-label="How the study worked">
+        <li><span class="step">01</span><div><strong>Collect</strong><p>751 tweets from Feb 9–18, 2022, on #TyphoonOdette, #OdettePH, #BangonPH, Typhoon Rai and related keywords</p></div></li>
+        <li><span class="step">02</span><div><strong>Clean</strong><p>Duplicates, retweets, links, usernames, emojis and stop words removed, leaving 584</p></div></li>
+        <li><span class="step">03</span><div><strong>Score</strong><p>Each tweet rated from −1 (negative) through 0 (neutral) to 1 (positive)</p></div></li>
+        <li><span class="step">04</span><div><strong>Visualize</strong><p>Word cloud, heat map, k-means clustering and score distributions</p></div></li>
+      </ol>
+    </article>
+  </section>
+
   <!-- ABOUT -->
   <section id="about" class="wrap">
     <div class="melt">
     <div class="section-head reveal">
-      <span class="num">02</span>
+      <span class="num">03</span>
       <h2>About</h2>
     </div>
 
@@ -238,7 +272,7 @@
   <!-- EXPERIENCE -->
   <section id="experience" class="wrap melt">
     <div class="section-head reveal">
-      <span class="num">03</span>
+      <span class="num">04</span>
       <h2>Experience</h2>
     </div>
     <div class="timeline reveal">
