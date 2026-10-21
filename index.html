@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Leo Lloyd Catalan</title>
+<meta name="description" content="Leo Lloyd Catalan: law student at Silliman University and computer science graduate who builds local-first AI tools for legal study.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <p class="eyebrow">Dumaguete City, Philippines</p>
+    <h1>Leo Lloyd Catalan</h1>
+    <p class="lede">Law student at Silliman University and computer science graduate. I build
+      local-first AI tools that help me study the law, and I want to become a jurist who understands
+      not only what the law says but why.</p>
+    <nav class="links">
+      <a href="#projects">Projects</a>
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="https://github.com/lloydonix">GitHub</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section id="projects">
+    <h2><span class="num">I</span> Projects</h2>
+    <p class="section-note">Built in October 2026 with Claude (Anthropic) as a pair programmer. They all
+      run on a 16 GB MacBook Air M2. The models are local through Ollama, and the cloud models I use
+      are on free tiers.</p>
+
+    <article class="project">
+      <div class="project-head">
+        <h3>F5 Studio</h3>
+        <a class="repo" href="https://github.com/lloydonix/f5-studio">github.com/lloydonix/f5-studio</a>
+      </div>
+      <p>An offline Mac app that turns long scripts, such as study reviewers, lecture notes and tutoring
+        scripts, into long-form audio with F5-TTS voice cloning. You pick a 5–10 second reference voice
+        and it generates audio one paragraph at a time on the Apple GPU.</p>
+      <ul>
+        <li>The generation queue survives restarts. Clips are keyed by their text, so editing one line regenerates only that line.</li>
+        <li>A shared pronunciation list handles Latin terms, names and acronyms, and numbers are written out as words before speaking.</li>
+        <li>Reference voices are trimmed, resampled to 24 kHz and transcribed with Whisper. Lines with an unusual pace are flagged for a listen.</li>
+        <li>A fact check flags numbers or citations that are missing compared with the source notes. The finished audio is exported as one merged MP3.</li>
+        <li>It's a native Swift wrapper around a local Python server. There are no accounts, no paid APIs, and nothing leaves the Mac.</li>
+      </ul>
+      <p class="tags"><span>Python</span><span>Swift</span><span>F5-TTS</span><span>Whisper</span><span>Apple Metal</span></p>
+    </article>
+
+    <article class="project">
+      <div class="project-head">
+        <h3>The Cogitator</h3>
+        <span class="repo private">private repository</span>
+      </div>
+      <p>A study machine for my law notes. Open WebUI sits on a custom OpenAI-compatible bridge, and every
+        question is answered from my Obsidian notes first, with the sources shown as links back into the vault.</p>
+      <ul>
+        <li>Study modes: <code>/digest</code> writes case digests in my own Case Brief template from my notes plus LawPhil, the SC E-Library and the Official Gazette. It refuses rather than digest from memory. <code>/recit</code> runs recitation drills, and there are modes for elements and for distinguishing doctrines.</li>
+        <li>A <em>PH Law Search</em> toggle limits web lookups to trusted Philippine legal sources.</li>
+        <li><em>Quiz me</em> and <em>Save as Brief</em> buttons sit under each answer. Saving drafts a new note into the right subject folder and links it from that subject's map of content. It never overwrites an existing note, and it backs up the map first.</li>
+        <li><strong>Scriptorium</strong> writes tutor scripts from a reviewer and the notes it links to, in a chosen voice, and checks the numbers against the sources. The scripts go straight to F5 Studio to be read aloud.</li>
+        <li>Groq writes the answers by default and Mistral is the backup. Offline, a local qwen3 model writes them, and the note search always stays on the Mac.</li>
+      </ul>
+      <p class="tags"><span>Python</span><span>Swift</span><span>Open WebUI</span><span>RAG</span><span>Ollama</span><span>Groq</span></p>
+    </article>
+
+    <article class="project">
+      <div class="project-head">
+        <h3>Scientia Juria Mentor</h3>
+        <span class="repo private">private repository</span>
+      </div>
+      <p>A strictly grounded law-study tutor for my Obsidian vault. It answers only from my notes (and from
+        trusted legal sites when I allow it), cites every claim, and refuses rather than guesses. It has a
+        persona: Sakura Mina, a fictional law-school rival I created.</p>
+      <ul>
+        <li>The pipeline is retrieval, then a draft, then a check of every claim against its citation. Unsupported claims are dropped, and a debug view shows why each one was kept or dropped.</li>
+        <li>The vault is opened read-only, and notes-only mode works fully offline.</li>
+        <li>An evaluation harness compares chat models side by side on the same questions.</li>
+        <li>Its retrieval and claim checks also power the Cogitator.</li>
+      </ul>
+      <p class="tags"><span>Python</span><span>RAG</span><span>Ollama</span><span>Embeddings</span><span>Evaluation</span></p>
+    </article>
+
+    <article class="project">
+      <div class="project-head">
+        <h3>Vi</h3>
+        <span class="repo private">private repository</span>
+      </div>
+      <p>A private, local AI companion with long-term memory. The chat, the model and every memory stay on
+        the Mac. It's the largest of these projects, with nearly a hundred commits in two weeks.</p>
+      <ul>
+        <li>It runs as launchd services that start at login and restart if they crash, plus scheduled check-ins.</li>
+        <li>Prompts are ordered so Ollama can reuse cached work between messages, which brings replies down to about 5–10 seconds on 16 GB of memory.</li>
+        <li>An optional discoveries feed downloads a fixed list of public feeds through a safety pipeline and sends out nothing about the user.</li>
+      </ul>
+      <p class="tags"><span>Python</span><span>Ollama</span><span>launchd</span><span>Long-term memory</span></p>
+    </article>
+
+    <article class="project">
+      <div class="project-head">
+        <h3>The Council</h3>
+        <span class="repo private">private repository</span>
+      </div>
+      <p>Several mentor characters in one chat, inspired by Arthur Morgan, Joshua Graham, Musashi from
+        <em>Vagabond</em>, and Arthas as the devil's advocate. The members with something to say reply,
+        all written in one model pass and shown as separate colored bubbles.</p>
+      <ul>
+        <li>Adding a member takes one persona file and one config entry.</li>
+        <li>It shares a single loaded model with Vi. Coordination code makes sure one app never unloads the model or pushes it out of memory while the other is using it.</li>
+      </ul>
+      <p class="tags"><span>Python</span><span>Swift</span><span>Ollama</span><span>Multi-agent</span></p>
+    </article>
+
+    <h3 class="sub">Earlier work</h3>
+    <ul class="earlier">
+      <li><a href="https://github.com/lloydonix/leo-dev">Leo OS</a>: a personal site and blog with a Node.js server and a SQL database.</li>
+      <li><a href="https://github.com/lloydonix/PSDtoWebpage">PSD to Webpage</a>: turning a Photoshop design into HTML and CSS.</li>
+    </ul>
+  </section>
+
+  <section id="about">
+    <h2><span class="num">II</span> About</h2>
+    <p>I'm a second-year law student at Silliman University in Dumaguete City, and the first in my family
+      to pursue law. Before law school I studied computer science, and I still code because I like it.
+      These projects came from wanting better tools for my own studies.</p>
+    <p>My goal is to become a jurist: someone with a deep, reliable command of legal principles.
+      I'm especially interested in legal scholarship and international law. Miriam Defensor-Santiago
+      and Jovito Salonga are the kind of Filipino legal minds I look up to.</p>
+    <p>I keep my legal reading in an Obsidian knowledge system with two parts. <strong>Scientia Juria</strong>
+      is the library of cases and subject-tagged materials, and <strong>Ratio Juris</strong> is where my own
+      analysis and reasoning go. The tools above are built on top of it.</p>
+    <div class="interests">
+      <div><h4>Reading</h4><p>Roman history, Stoicism and Marcus Aurelius, Napoleon</p></div>
+      <div><h4>Listening</h4><p>The Beatles (<em>Abbey Road</em>), Sinatra, standards, K-pop</p></div>
+      <div><h4>Playing</h4><p>Baldur's Gate 3, Warhammer 40,000: Rogue Trader, Red Dead Redemption 2</p></div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <h2><span class="num">III</span> Experience</h2>
+    <div class="timeline">
+      <div class="item">
+        <h3>Juris Doctor, in progress</h3>
+        <p class="meta">Silliman University College of Law · Dumaguete City</p>
+      </div>
+      <div class="item">
+        <h3>Team Lead, Amazon Missing Inbound Reimbursements</h3>
+        <p class="meta">Remote</p>
+        <p>Led a team recovering reimbursements for Amazon seller inventory lost or mishandled at inbound.</p>
+      </div>
+      <div class="item">
+        <h3>Remote Support</h3>
+        <p class="meta">Remote</p>
+      </div>
+      <div class="item">
+        <h3>BS Computer Science</h3>
+        <p class="meta">Graduate</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>Leo Lloyd Catalan · <a href="https://github.com/lloydonix">github.com/lloydonix</a></p>
+  </div>
+</footer>
+
+</body>
+</html>
