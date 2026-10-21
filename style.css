@@ -120,7 +120,7 @@ code { font-size: .88em; background: var(--tag-bg); padding: 1px 5px; border-rad
 @keyframes drip { 0% { transform: scaleY(0); transform-origin: top; } 50% { transform: scaleY(1); transform-origin: top; } 51% { transform-origin: bottom; } 100% { transform: scaleY(0); transform-origin: bottom; } }
 
 /* ---------- Sections ---------- */
-section { padding: 80px 24px 40px; }
+section.wrap { padding-top: 140px; padding-bottom: 20px; }
 .section-head { display: flex; align-items: baseline; gap: 14px; }
 .section-head h2 { font-size: 38px; margin: 0; letter-spacing: -0.03em; }
 .num { color: var(--accent); font-size: 14px; font-weight: 600; letter-spacing: .08em; font-variant-numeric: tabular-nums; }
@@ -279,6 +279,7 @@ section { padding: 80px 24px 40px; }
 
 @media (max-width: 720px) {
   .wrap, section { padding-left: 16px; padding-right: 16px; }
+  section.wrap { padding-top: 100px; }
   .topbar { padding: 12px 16px; }
   .nav-links { gap: 14px; font-size: 13px; }
   .hero-stage { grid-template-columns: 1fr; grid-template-rows: 52vh auto; gap: 8px; padding: 64px 16px 0; align-content: start; }
