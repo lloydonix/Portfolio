@@ -4,12 +4,23 @@ const canHover = matchMedia("(hover: hover) and (pointer: fine)").matches;
 /* ---------- Home: melt the photo and intro as you scroll ---------- */
 const hero = document.querySelector(".hero");
 const topbar = document.getElementById("topbar");
+const melters = [...document.querySelectorAll(".melt")];
 let ticking = false;
+
+// Blocks below the home screen melt the same way once their top passes under the top bar
+function meltAway() {
+  const line = topbar.offsetHeight + 20;
+  for (const el of melters) {
+    const r = el.getBoundingClientRect();
+    const m = Math.min(Math.max((line - r.top) / r.height, 0), 1);
+    el.style.setProperty("--m", m.toFixed(4));
+  }
+}
 
 function onScroll() {
   const range = hero.offsetHeight - innerHeight;
   const p = Math.min(Math.max(scrollY / Math.max(range, 1), 0), 1);
-  if (!reduceMotion) hero.style.setProperty("--p", p.toFixed(4));
+  if (!reduceMotion) { hero.style.setProperty("--p", p.toFixed(4)); meltAway(); }
   topbar.classList.toggle("solid", scrollY > range * 0.85);
   ticking = false;
 }
